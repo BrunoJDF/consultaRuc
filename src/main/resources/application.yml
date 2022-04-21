@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ms-ruc
+  profiles:
+    active: "dev"
+---
+server:
+  port: ${PORT:9001}
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    config:
+      enabled: false
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: mongodb+srv://bruno:bruno@cluster0.u1cky.mongodb.net/person?retryWrites=true&w=majority
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
